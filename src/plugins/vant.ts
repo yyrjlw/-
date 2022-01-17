@@ -1,10 +1,12 @@
 import { App } from '@vue/runtime-core'
 import {
   NavBar,
-  NumberKeyboard
+  Icon
 } from 'vant'
 
-export default function (vue: App): void {
-  vue.use(NavBar)
-  vue.use(NumberKeyboard)
+export default {
+  attach (vue: App): void {
+    vue.use(NavBar)
+    vue.use(Icon)
+  }
 }

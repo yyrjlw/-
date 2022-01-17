@@ -6,12 +6,16 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "openIDE:android":"cap open android",
-    "run:android":"cap run android"
+    "openIDE:android": "cap open android",
+    "run:android": "cap run android"
   },
   "dependencies": {
     "@capacitor/android": "^3.3.4",
     "@capacitor/core": "^3.3.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "normalize.css": "^8.0.1",
     "vant": "3",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
