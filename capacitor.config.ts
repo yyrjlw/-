@@ -1,14 +1,35 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
-const config: CapacitorConfig = {
+let config: CapacitorConfig
+
+const baseConfig: CapacitorConfig = {
   appId: 'com.medicalrecord.app',
   appName: 'medical-record',
   webDir: 'dist',
   bundledWebRuntime: false,
   "server": {
-    "url": "http://192.168.1.3:8080",
+    "url": "http://192.168.1.20:8080",
     "cleartext": true
-  },
+  }
 };
+
+switch (process.env.NODE_ENV) {
+  case 'pro':
+    config = {
+      ...baseConfig,
+      android: {
+        flavor: 'pro',
+      }
+    };
+    break;
+  default:
+    config = {
+      ...baseConfig,
+      android: {
+        flavor: 'dev',
+      }
+    };
+    break;
+}
 
 export default config;

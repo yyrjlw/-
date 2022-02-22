@@ -1,15 +1,42 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 
 import 'normalize.css'
-import vant from './plugins/vant'
 import fontawesome from './plugins/fontawesome'
+import vant from './plugins/vant'
+import './assets/style/theme.less'
+import './assets/style/reset.less'
+import axios from './plugins/axios'
+import moment from 'moment'
+moment.locale('zh-cn')
+import 'animate.css'
 
 const vue = createApp(App)
 
-vant.attach(vue)
-fontawesome.attach(vue)
+vue.use(vant)
+vue.use(fontawesome)
+vue.use(axios)
 
-vue.use(store).use(router).mount('#app')
+/**自定义指令-长按事件 */
+vue.directive('longpress',{
+    mounted(el:HTMLElement,binding){
+        let timeOutEvent = 0 //记录触摸时长
+        el.addEventListener('touchstart',function(){
+            clearTimeout(timeOutEvent);
+            timeOutEvent = setTimeout(function() {
+                timeOutEvent = 0;
+                //  处理长按事件...
+                binding.value(binding.arg)
+            }, 600);
+        })
+    
+        el.addEventListener('touchend',()=>{
+            clearTimeout(timeOutEvent);
+        })
+        
+    }
+})
+
+
+vue.use(router).mount('#app')

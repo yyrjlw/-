@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faBars)
 
 export default {
-  attach (vue: App): void {
+  install (vue: App): void {
     vue.component('font-awesome-icon', FontAwesomeIcon)
   }
 }

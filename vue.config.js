@@ -1,8 +1,6 @@
 const tsImportPluginFactory = require('ts-import-plugin')
 
 module.exports = {
-  //关闭eslint检测
-  lintOnSave: process.env.NODE_ENV !== 'production',
   //并行编译
   parallel:false,
   configureWebpack: {
