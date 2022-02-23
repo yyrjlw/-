@@ -9,7 +9,8 @@
     "openIDE:android": "cap open android",
     "cap sync": "cap sync",
     "run:android": "cap run android",
-    "run-prod:android": "NODE_ENV=pro cap run android"
+    "run-prod:android": "cross-env NODE_ENV=pro cap run android",
+    "copy-prod": "cross-env NODE_ENV=pro cap copy"
   },
   "dependencies": {
     "@capacitor/android": "^3.3.4",
@@ -45,6 +46,7 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "cross-env": "^7.0.3",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "postcss": "^8.4.5",

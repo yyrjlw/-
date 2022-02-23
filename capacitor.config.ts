@@ -5,12 +5,7 @@ let config: CapacitorConfig
 const baseConfig: CapacitorConfig = {
   appId: 'com.medicalrecord.app',
   appName: 'medical-record',
-  webDir: 'dist',
-  bundledWebRuntime: false,
-  "server": {
-    "url": "http://192.168.1.20:8080",
-    "cleartext": true
-  }
+  webDir: 'dist'
 };
 
 switch (process.env.NODE_ENV) {
@@ -27,6 +22,11 @@ switch (process.env.NODE_ENV) {
       ...baseConfig,
       android: {
         flavor: 'dev',
+      },
+      bundledWebRuntime: false,
+      "server": {
+        "url": "http://192.168.1.20:8080",
+        "cleartext": true
       }
     };
     break;
